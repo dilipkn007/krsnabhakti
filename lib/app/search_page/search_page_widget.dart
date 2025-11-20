@@ -84,55 +84,66 @@ class _SearchPageWidgetState extends State<SearchPageWidget> {
                             ),
                           ),
                         ),
-                        Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            FlutterFlowDropDown<String>(
-                              controller: _model.dropDownValueController1 ??=
-                                  FormFieldController<String>(null),
-                              options: ['Settings', 'Feedback'],
-                              onChanged: (val) => safeSetState(
-                                  () => _model.dropDownValue1 = val),
-                              width: 295.5,
-                              height: 32.0,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    font: GoogleFonts.inter(
-                                      fontWeight: FontWeight.w600,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontStyle,
-                                    ),
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w600,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .fontStyle,
-                                    lineHeight: 1.2,
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 5.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 2.0, 0.0),
+                                child: FlutterFlowDropDown<String>(
+                                  controller:
+                                      _model.dropDownValueController1 ??=
+                                          FormFieldController<String>(null),
+                                  options: ['Books', 'Songs'],
+                                  onChanged: (val) => safeSetState(
+                                      () => _model.dropDownValue1 = val),
+                                  width: 295.5,
+                                  height: 32.0,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        font: GoogleFonts.inter(
+                                          fontWeight: FontWeight.w600,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                        ),
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.w600,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                        lineHeight: 1.2,
+                                      ),
+                                  hintText: 'Menu',
+                                  icon: Icon(
+                                    Icons.keyboard_arrow_down_rounded,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    size: 24.0,
                                   ),
-                              hintText: 'Menu',
-                              icon: Icon(
-                                Icons.keyboard_arrow_down_rounded,
-                                color: FlutterFlowTheme.of(context).primaryText,
-                                size: 24.0,
+                                  fillColor: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  elevation: 2.0,
+                                  borderColor: Colors.transparent,
+                                  borderWidth: 0.0,
+                                  borderRadius: 40.0,
+                                  margin: EdgeInsetsDirectional.fromSTEB(
+                                      12.0, 0.0, 6.0, 0.0),
+                                  hidesUnderline: true,
+                                  isOverButton: false,
+                                  isSearchable: false,
+                                  isMultiSelect: false,
+                                ),
                               ),
-                              fillColor: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                              elevation: 2.0,
-                              borderColor: Colors.transparent,
-                              borderWidth: 0.0,
-                              borderRadius: 40.0,
-                              margin: EdgeInsetsDirectional.fromSTEB(
-                                  12.0, 0.0, 6.0, 0.0),
-                              hidesUnderline: true,
-                              isOverButton: false,
-                              isSearchable: false,
-                              isMultiSelect: false,
-                            ),
-                          ]
-                              .divide(SizedBox(width: 1.0))
-                              .around(SizedBox(width: 1.0)),
+                            ]
+                                .divide(SizedBox(width: 1.0))
+                                .around(SizedBox(width: 1.0)),
+                          ),
                         ),
                       ].divide(SizedBox(width: 1.0)),
                     ),
@@ -723,7 +734,7 @@ class _SearchPageWidgetState extends State<SearchPageWidget> {
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           onTap: () async {
-                            context.pushNamed(BookWidget.routeName);
+                            context.pushNamed(LandingPageWidget.routeName);
                           },
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
@@ -800,7 +811,20 @@ class _SearchPageWidgetState extends State<SearchPageWidget> {
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           onTap: () async {
-                            context.pushNamed(LandingPageWidget.routeName);
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(
+                                  'We\'re working on this feature. Stay tuned!',
+                                  style: TextStyle(
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                  ),
+                                ),
+                                duration: Duration(milliseconds: 4000),
+                                backgroundColor:
+                                    FlutterFlowTheme.of(context).secondary,
+                              ),
+                            );
                           },
                           child: Column(
                             mainAxisSize: MainAxisSize.max,

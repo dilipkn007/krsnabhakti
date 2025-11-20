@@ -226,6 +226,10 @@ dynamic deserializeParam<T>(
             return ReadBooksRow(data);
           case FetchChaptersRow:
             return FetchChaptersRow(data);
+          case FetchSubChaptersRow:
+            return FetchSubChaptersRow(data);
+          case FetchChaptersContentRow:
+            return FetchChaptersContentRow(data);
           default:
             return null;
         }

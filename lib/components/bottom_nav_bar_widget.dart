@@ -1,6 +1,5 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'bottom_nav_bar_model.dart';
@@ -55,37 +54,19 @@ class _BottomNavBarWidgetState extends State<BottomNavBarWidget> {
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              InkWell(
-                splashColor: Colors.transparent,
-                focusColor: Colors.transparent,
-                hoverColor: Colors.transparent,
-                highlightColor: Colors.transparent,
-                onTap: () async {
-                  context.pushNamed(BookWidget.routeName);
-                },
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(
-                      Icons.menu_book_rounded,
-                      color: FlutterFlowTheme.of(context).secondaryText,
-                      size: 24.0,
-                    ),
-                    Text(
-                      'Books',
-                      style: FlutterFlowTheme.of(context).labelSmall.override(
-                            font: GoogleFonts.inter(
-                              fontWeight: FlutterFlowTheme.of(context)
-                                  .labelSmall
-                                  .fontWeight,
-                              fontStyle: FlutterFlowTheme.of(context)
-                                  .labelSmall
-                                  .fontStyle,
-                            ),
-                            color: FlutterFlowTheme.of(context).secondaryText,
-                            fontSize: 12.0,
-                            letterSpacing: 0.0,
+              Column(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.menu_book_rounded,
+                    color: FlutterFlowTheme.of(context).secondaryText,
+                    size: 24.0,
+                  ),
+                  Text(
+                    'Books',
+                    style: FlutterFlowTheme.of(context).labelSmall.override(
+                          font: GoogleFonts.inter(
                             fontWeight: FlutterFlowTheme.of(context)
                                 .labelSmall
                                 .fontWeight,
@@ -93,9 +74,17 @@ class _BottomNavBarWidgetState extends State<BottomNavBarWidget> {
                                 .labelSmall
                                 .fontStyle,
                           ),
-                    ),
-                  ].divide(SizedBox(height: 4.0)),
-                ),
+                          color: FlutterFlowTheme.of(context).secondaryText,
+                          fontSize: 12.0,
+                          letterSpacing: 0.0,
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .labelSmall
+                              .fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).labelSmall.fontStyle,
+                        ),
+                  ),
+                ].divide(SizedBox(height: 4.0)),
               ),
               Column(
                 mainAxisSize: MainAxisSize.max,

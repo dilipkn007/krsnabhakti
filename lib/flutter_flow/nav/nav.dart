@@ -49,11 +49,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => SearchPageWidget(),
         ),
         FFRoute(
-          name: BookWidget.routeName,
-          path: BookWidget.routePath,
-          builder: (context, params) => BookWidget(),
-        ),
-        FFRoute(
           name: BookReadingCopyWidget.routeName,
           path: BookReadingCopyWidget.routePath,
           builder: (context, params) => BookReadingCopyWidget(
@@ -81,7 +76,48 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: ChaptersWidget.routeName,
           path: ChaptersWidget.routePath,
-          builder: (context, params) => ChaptersWidget(),
+          builder: (context, params) => ChaptersWidget(
+            bookId: params.getParam(
+              'bookId',
+              ParamType.int,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: ContentsWidget.routeName,
+          path: ContentsWidget.routePath,
+          builder: (context, params) => ContentsWidget(
+            content: params.getParam(
+              'content',
+              ParamType.String,
+            ),
+            title: params.getParam(
+              'title',
+              ParamType.String,
+            ),
+            bookId: params.getParam(
+              'bookId',
+              ParamType.int,
+            ),
+            chapterNumber: params.getParam(
+              'chapterNumber',
+              ParamType.int,
+            ),
+            parentId: params.getParam(
+              'parentId',
+              ParamType.int,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: SubChaptersWidget.routeName,
+          path: SubChaptersWidget.routePath,
+          builder: (context, params) => SubChaptersWidget(
+            chapterId: params.getParam(
+              'chapterId',
+              ParamType.int,
+            ),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

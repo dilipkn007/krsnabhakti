@@ -32,8 +32,30 @@ class SQLiteManager {
         _database,
       );
 
-  Future<List<FetchChaptersRow>> fetchChapters() => performFetchChapters(
+  Future<List<FetchChaptersRow>> fetchChapters({
+    int? bookId,
+  }) =>
+      performFetchChapters(
         _database,
+        bookId: bookId,
+      );
+
+  Future<List<FetchSubChaptersRow>> fetchSubChapters({
+    int? chapterId,
+  }) =>
+      performFetchSubChapters(
+        _database,
+        chapterId: chapterId,
+      );
+
+  Future<List<FetchChaptersContentRow>> fetchChaptersContent({
+    int? bookId,
+    int? parentId,
+  }) =>
+      performFetchChaptersContent(
+        _database,
+        bookId: bookId,
+        parentId: parentId,
       );
 
   /// END READ QUERY CALLS
